@@ -12,8 +12,8 @@ export const ThreeDSection = () => {
   const props = useSpring({ open: Number(open) });
   return (
     <div>
-      <Container className="py-20 max-w-8xl mx-auto  relative z-40 h-[600px] md:h-[900px]">
-        <Canvas camera={{ position: [-5, 0, -15], fov: 55 }}>
+      <Container className="py-20 max-w-8xl mx-auto  relative z-40 h-[550px] md:h-[900px]">
+        <Canvas camera={{ position: [-5, 0, -15], fov: 55 }} dpr={[1, 2]}>
           <pointLight position={[10, 10, 10]} intensity={1.5} />
           <Suspense fallback={null}>
             <group
