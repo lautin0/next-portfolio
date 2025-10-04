@@ -33,7 +33,7 @@ export const Hero = () => {
       </h2>
       <div className="flex space-x-2 items-center mt-8">
         <Button as={Link} href={"#experience-section"}>
-          Experience
+          Explore
         </Button>
         <Button
           as={Link}
