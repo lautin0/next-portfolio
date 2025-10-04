@@ -10,7 +10,8 @@
     "check:format": "prettier . --check --cache",
     "fix:format": "prettier . --write --cache",
     "fix": "pnpm fix:format",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
@@ -36,6 +37,22 @@
     "three": "^0.180.0",
     "three-globe": "^2.44.0"
   },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+    }
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
@@ -43,8 +60,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/three": "^0.180.0",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.36.0",
     "eslint-config-next": "15.5.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.3",
     "prettier": "^3.6.2",
     "tailwindcss": "^4",
     "typescript": "^5"
