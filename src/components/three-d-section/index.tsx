@@ -9,11 +9,8 @@ import { Container } from "../container";
 export const ThreeDSection = () => {
   return (
     <div>
-      <Container className="py-20 max-w-8xl mx-auto  relative z-40">
-        <Canvas
-          camera={{ position: [-5, 0, -15], fov: 55 }}
-          style={{ height: 800 }}
-        >
+      <Container className="py-20 max-w-8xl mx-auto  relative z-40 h-[600px] md:h-[900px]">
+        <Canvas camera={{ position: [-5, 0, -15], fov: 55 }}>
           <pointLight position={[10, 10, 10]} intensity={1.5} />
           <Suspense fallback={null}>
             <group rotation={[0, Math.PI, 0]} position={[0, 1, 0]}>
