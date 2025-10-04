@@ -1,0 +1,52 @@
+{
+  "name": "tinsley-portfolio-v2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "next lint",
+    "check:format": "prettier . --check --cache",
+    "fix:format": "prettier . --write --cache",
+    "fix": "pnpm fix:format",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.9",
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.3.0",
+    "@tabler/icons-react": "^3.35.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.9.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.22",
+    "mini-svg-data-uri": "^1.4.4",
+    "next": "15.5.4",
+    "next-view-transitions": "^0.3.4",
+    "outline": "link:@headlessui/react/outline",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-wrap-balancer": "^1.1.1",
+    "solid": "link:@heroicons/react/solid",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.180.0",
+    "three-globe": "^2.44.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "^0.180.0",
+    "eslint": "^9.36.0",
+    "eslint-config-next": "15.5.4",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
