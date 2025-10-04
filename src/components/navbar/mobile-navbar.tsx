@@ -88,7 +88,7 @@ export const MobileNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
                   index === rightNavbarItems.length - 1 ? "primary" : "simple"
                 }
                 as={Link}
-                href={`/${item.URL}`}
+                href={`${item.URL.startsWith("http") ? "" : `/`}${item.URL}`}
               >
                 {item.text}
               </Button>

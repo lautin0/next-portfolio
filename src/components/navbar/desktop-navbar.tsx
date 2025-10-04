@@ -30,7 +30,7 @@ export const DesktopNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
   return (
     <motion.div
       className={cn(
-        "w-full flex relative justify-between px-4 py-3 rounded-md  transition duration-200 bg-transparent mx-auto"
+        "w-full flex relative justify-between px-4 py-3 rounded-md  transition duration-200 bg-transparent mx-auto",
       )}
       animate={{
         width: showBackground ? "80%" : "100%",
@@ -75,7 +75,7 @@ export const DesktopNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
               index === rightNavbarItems.length - 1 ? "primary" : "simple"
             }
             as={Link}
-            href={`${item.target === "_blank" ? "" : "/"}${item.URL}`}
+            href={`${item.URL.startsWith("http") ? "" : `/`}${item.URL}`}
             target={item.target}
           >
             {item.text}
