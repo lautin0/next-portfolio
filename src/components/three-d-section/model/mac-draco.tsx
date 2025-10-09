@@ -60,6 +60,7 @@ export const Model = React.memo(function Model(props: any) {
               position={[0, 0.05, -0.09]}
               transform
               occlude
+              center
             >
               <div className="wrapper" onPointerDown={(e) => e.stopPropagation()}>
                 <MemorizedHeroPage />
