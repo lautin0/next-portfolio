@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { OrbitControls } from "@react-three/drei";
-import { Canvas, extend, useThree } from "@react-three/fiber";
-import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
-import { Color, Fog, PerspectiveCamera, Scene, Vector3 } from "three";
-import ThreeGlobe from "three-globe";
+import { OrbitControls } from '@react-three/drei';
+import { Canvas, extend, useThree } from '@react-three/fiber';
+import dynamic from 'next/dynamic';
+import { useEffect, useRef, useState } from 'react';
+import { Color, Fog, PerspectiveCamera, Scene, Vector3 } from 'three';
+import ThreeGlobe from 'three-globe';
 
-import countries from "./data/globe.json";
+import countries from './data/globe.json';
 
 /* eslint-disable react-hooks/exhaustive-deps */
 
@@ -79,12 +79,12 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   const defaultProps = {
     pointSize: 1,
-    atmosphereColor: "#ffffff",
+    atmosphereColor: '#ffffff',
     showAtmosphere: true,
     atmosphereAltitude: 0.1,
-    polygonColor: "rgba(255,255,255,0.7)",
-    globeColor: "#1d072e",
-    emissive: "#000000",
+    polygonColor: 'rgba(255,255,255,0.7)',
+    globeColor: '#1d072e',
+    emissive: '#000000',
     emissiveIntensity: 0.1,
     shininess: 0.9,
     arcTime: 2000,
@@ -138,8 +138,8 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
       // Validate start coordinates
       if (
-        typeof arc.startLat === "number" &&
-        typeof arc.startLng === "number" &&
+        typeof arc.startLat === 'number' &&
+        typeof arc.startLng === 'number' &&
         Number.isFinite(arc.startLat) &&
         Number.isFinite(arc.startLng)
       ) {
@@ -154,8 +154,8 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
       // Validate end coordinates
       if (
-        typeof arc.endLat === "number" &&
-        typeof arc.endLng === "number" &&
+        typeof arc.endLat === 'number' &&
+        typeof arc.endLng === 'number' &&
         Number.isFinite(arc.endLat) &&
         Number.isFinite(arc.endLng)
       ) {
@@ -173,28 +173,21 @@ export function Globe({ globeConfig, data }: WorldProps) {
     const filteredPoints = points.filter(
       (v, i, a) =>
         // Ensure valid coordinates
-        typeof v.lat === "number" &&
-        typeof v.lng === "number" &&
+        typeof v.lat === 'number' &&
+        typeof v.lng === 'number' &&
         !isNaN(v.lat) &&
         !isNaN(v.lng) &&
         // Remove duplicates
         a.findIndex((v2) =>
-          ["lat", "lng"].every(
-            (k) => v2[k as "lat" | "lng"] === v[k as "lat" | "lng"],
-          ),
-        ) === i,
+          ['lat', 'lng'].every((k) => v2[k as 'lat' | 'lng'] === v[k as 'lat' | 'lng'])
+        ) === i
     );
 
     setGlobeData(filteredPoints);
   };
 
   useEffect(() => {
-    if (
-      globeRef.current &&
-      globeData &&
-      globeData.length > 0 &&
-      !isAnimationStarted
-    ) {
+    if (globeRef.current && globeData && globeData.length > 0 && !isAnimationStarted) {
       // Validate countries data
       const validCountries = countries.features.filter((feature) => {
         if (!feature.geometry || !feature.geometry.coordinates) return false;
@@ -202,11 +195,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       });
 
       // Initialize globe with empty data first to prevent NaN issues
-      globeRef.current
-        .hexPolygonsData([])
-        .arcsData([])
-        .pointsData([])
-        .ringsData([]);
+      globeRef.current.hexPolygonsData([]).arcsData([]).pointsData([]).ringsData([]);
 
       // Then set the actual data
       globeRef.current
@@ -226,7 +215,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
         startAnimation();
       }, 100);
     }
-     
   }, [globeData, isAnimationStarted]);
 
   const startAnimation = () => {
@@ -238,20 +226,20 @@ export function Globe({ globeConfig, data }: WorldProps) {
       // Filter arcs data to remove any with invalid coordinates
       const validArcsData = data.filter((arc) => {
         return (
-          typeof arc.startLat === "number" &&
+          typeof arc.startLat === 'number' &&
           Number.isFinite(arc.startLat) &&
-          typeof arc.startLng === "number" &&
+          typeof arc.startLng === 'number' &&
           Number.isFinite(arc.startLng) &&
-          typeof arc.endLat === "number" &&
+          typeof arc.endLat === 'number' &&
           Number.isFinite(arc.endLat) &&
-          typeof arc.endLng === "number" &&
+          typeof arc.endLng === 'number' &&
           Number.isFinite(arc.endLng)
         );
       });
 
       // Only proceed if we have valid data
       if (validArcsData.length === 0) {
-        console.warn("No valid arc data available");
+        console.warn('No valid arc data available');
         return;
       }
 
@@ -274,7 +262,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
           const lng = (d as { endLng: number }).endLng;
           return Number.isFinite(lng) ? lng : 0;
         })
-        .arcColor((e: any) => (e as { color: string }).color || "#ffffff")
+        .arcColor((e: any) => (e as { color: string }).color || '#ffffff')
         .arcAltitude((e) => {
           const alt = (e as { arcAlt: number }).arcAlt;
           return Number.isFinite(alt) ? alt : 0.1;
@@ -300,11 +288,9 @@ export function Globe({ globeConfig, data }: WorldProps) {
         .ringsData([])
         .ringMaxRadius(defaultProps.maxRings)
         .ringPropagationSpeed(RING_PROPAGATION_SPEED)
-        .ringRepeatPeriod(
-          (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings,
-        );
+        .ringRepeatPeriod((defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings);
     } catch (error) {
-      console.error("Error in startAnimation:", error);
+      console.error('Error in startAnimation:', error);
     }
   };
 
@@ -315,34 +301,29 @@ export function Globe({ globeConfig, data }: WorldProps) {
       try {
         if (!globeRef.current || !globeData) return;
 
-        numbersOfRings = genRandomNumbers(
-          0,
-          data.length,
-          Math.floor((data.length * 4) / 5),
-        );
+        numbersOfRings = genRandomNumbers(0, data.length, Math.floor((data.length * 4) / 5));
 
         // Filter globeData to ensure valid coordinates for rings
         const validRingPoints = globeData.filter(
           (d, i) =>
             numbersOfRings.includes(i) &&
-            typeof d.lat === "number" &&
+            typeof d.lat === 'number' &&
             Number.isFinite(d.lat) &&
-            typeof d.lng === "number" &&
-            Number.isFinite(d.lng),
+            typeof d.lng === 'number' &&
+            Number.isFinite(d.lng)
         );
 
         if (validRingPoints.length > 0) {
           globeRef.current.ringsData(validRingPoints);
         }
       } catch (error) {
-        console.error("Error updating rings:", error);
+        console.error('Error updating rings:', error);
       }
     }, 2000);
 
     return () => {
       clearInterval(interval);
     };
-     
   }, [globeRef.current, globeData]);
 
   // Prevent hydration mismatch by only rendering on client

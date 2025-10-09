@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useMotionValueEvent, useScroll } from "framer-motion";
-import { Link } from "next-view-transitions";
-import { useState } from "react";
+import { useMotionValueEvent, useScroll } from 'framer-motion';
+import { Link } from 'next-view-transitions';
+import { useState } from 'react';
 
-import { Button } from "@/components/elements/button";
-import { cn } from "@/lib/utils";
-import { IconMenu, IconX } from "@tabler/icons-react";
-import { Props } from "./types";
-import { Logo } from "../logo";
+import { Button } from '@/components/elements/button';
+import { cn } from '@/lib/utils';
+import { IconMenu, IconX } from '@tabler/icons-react';
+import { Props } from './types';
+import { Logo } from '../logo';
 
 export const MobileNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
   const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ export const MobileNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
 
   const [showBackground, setShowBackground] = useState(false);
 
-  useMotionValueEvent(scrollY, "change", (value) => {
+  useMotionValueEvent(scrollY, 'change', (value) => {
     if (value > 100) {
       setShowBackground(true);
     } else {
@@ -28,9 +28,9 @@ export const MobileNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
   return (
     <div
       className={cn(
-        "flex justify-between bg-transparent items-center w-full rounded-md px-2.5 py-1.5 transition duration-200",
+        'flex justify-between bg-transparent items-center w-full rounded-md px-2.5 py-1.5 transition duration-200',
         showBackground &&
-          " bg-neutral-900  shadow-[0px_-2px_0px_0px_var(--neutral-800),0px_2px_0px_0px_var(--neutral-800)]",
+          ' bg-neutral-900  shadow-[0px_-2px_0px_0px_var(--neutral-800),0px_2px_0px_0px_var(--neutral-800)]'
       )}
     >
       <Logo />
@@ -41,10 +41,7 @@ export const MobileNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
           <div className="flex items-center justify-between w-full px-5">
             <Logo />
             <div className="flex items-center space-x-2">
-              <IconX
-                className="h-8 w-8 text-white"
-                onClick={() => setOpen(!open)}
-              />
+              <IconX className="h-8 w-8 text-white" onClick={() => setOpen(!open)} />
             </div>
           </div>
           <div className="flex flex-col items-start justify-start gap-[14px] px-8">
@@ -59,9 +56,7 @@ export const MobileNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
                         onClick={() => setOpen(false)}
                         className="relative max-w-[15rem] text-left text-2xl"
                       >
-                        <span className="block text-white">
-                          {childNavItem.text}
-                        </span>
+                        <span className="block text-white">{childNavItem.text}</span>
                       </Link>
                     ))}
                   </>
@@ -72,9 +67,7 @@ export const MobileNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
                     onClick={() => setOpen(false)}
                     className="relative"
                   >
-                    <span className="block text-[26px] text-white">
-                      {navItem.text}
-                    </span>
+                    <span className="block text-[26px] text-white">{navItem.text}</span>
                   </Link>
                 )}
               </>
@@ -84,11 +77,9 @@ export const MobileNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
             {rightNavbarItems.map((item, index) => (
               <Button
                 key={item.text}
-                variant={
-                  index === rightNavbarItems.length - 1 ? "primary" : "simple"
-                }
+                variant={index === rightNavbarItems.length - 1 ? 'primary' : 'simple'}
                 as={Link}
-                href={`${item.URL.startsWith("http") ? "" : `/`}${item.URL}`}
+                href={`${item.URL.startsWith('http') ? '' : `/`}${item.URL}`}
               >
                 {item.text}
               </Button>

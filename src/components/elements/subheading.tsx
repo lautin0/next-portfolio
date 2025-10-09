@@ -1,12 +1,12 @@
-import { MotionProps } from "framer-motion";
-import React from "react";
-import Balancer from "react-wrap-balancer";
+import { MotionProps } from 'framer-motion';
+import React from 'react';
+import Balancer from 'react-wrap-balancer';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 export const Subheading = ({
   className,
-  as: Tag = "h2",
+  as: Tag = 'h2',
   children,
   ...props
 }: {
@@ -19,9 +19,9 @@ export const Subheading = ({
   return (
     <Tag
       className={cn(
-        "text-sm md:text-lg  max-w-4xl text-left my-4 mx-auto",
-        "text-muted text-center font-normal",
-        className,
+        'text-sm md:text-lg  max-w-4xl text-left my-4 mx-auto',
+        'text-muted text-center font-normal',
+        className
       )}
     >
       <Balancer>{children}</Balancer>

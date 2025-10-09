@@ -1,18 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import { Container } from "../container";
-import { GradientContainer } from "../gradient-container";
-import {
-  Card,
-  CardDescription,
-  CardSkeletonContainer,
-  CardTitle,
-} from "./card";
-import { SkeletonOne } from "./skeletons/first";
-import { SkeletonFour } from "./skeletons/fourth";
-import { SkeletonTwo } from "./skeletons/second";
-import { Heading } from "../elements/heading";
-import { Subheading } from "../elements/subheading";
+import { Container } from '../container';
+import { GradientContainer } from '../gradient-container';
+import { Card, CardDescription, CardSkeletonContainer, CardTitle } from './card';
+import { SkeletonOne } from './skeletons/first';
+import { SkeletonFour } from './skeletons/fourth';
+import { SkeletonTwo } from './skeletons/second';
+import { Heading } from '../elements/heading';
+import { Subheading } from '../elements/subheading';
 
 const wordToNumber: { [key: string]: number } = {
   one: 1,
@@ -25,17 +20,17 @@ function convertWordToNumber(word: string) {
 }
 
 function getColSpanClass(span: string | undefined) {
-  const numericSpan = convertWordToNumber(span ?? "");
+  const numericSpan = convertWordToNumber(span ?? '');
   const resolved = numericSpan ?? 2;
   switch (resolved) {
     case 1:
-      return "md:col-span-1";
+      return 'md:col-span-1';
     case 2:
-      return "md:col-span-2";
+      return 'md:col-span-2';
     case 3:
-      return "md:col-span-3";
+      return 'md:col-span-3';
     default:
-      return "md:col-span-2";
+      return 'md:col-span-2';
   }
 }
 
@@ -89,9 +84,7 @@ export const AboutMe = ({
                   <SkeletonFour />
                 </CardSkeletonContainer>
                 <CardTitle>{social_media_card.title}</CardTitle>
-                <CardDescription>
-                  {social_media_card.description}
-                </CardDescription>
+                <CardDescription>{social_media_card.description}</CardDescription>
               </Card>
             )}
           </div>

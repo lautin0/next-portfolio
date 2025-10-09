@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
-import { DesktopNavbar } from "./desktop-navbar";
-import { MobileNavbar } from "./mobile-navbar";
+import { DesktopNavbar } from './desktop-navbar';
+import { MobileNavbar } from './mobile-navbar';
 
 export function Navbar({ data }: { data: any }) {
   return (

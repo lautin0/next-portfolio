@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
 interface ShootingStar {
   id: number;
@@ -62,12 +62,8 @@ const ShootingStars: React.FC = () => {
       if (star) {
         setStar((prevStar) => {
           if (!prevStar) return null;
-          const newX =
-            prevStar.x +
-            prevStar.speed * Math.cos((prevStar.angle * Math.PI) / 180);
-          const newY =
-            prevStar.y +
-            prevStar.speed * Math.sin((prevStar.angle * Math.PI) / 180);
+          const newX = prevStar.x + prevStar.speed * Math.cos((prevStar.angle * Math.PI) / 180);
+          const newY = prevStar.y + prevStar.speed * Math.sin((prevStar.angle * Math.PI) / 180);
           const newDistance = prevStar.distance + prevStar.speed;
           const newScale = 1 + newDistance / 100;
           if (
@@ -94,12 +90,7 @@ const ShootingStars: React.FC = () => {
   }, [star]);
 
   return (
-    <svg
-      ref={svgRef}
-      width="100%"
-      height="100%"
-      style={{ position: "absolute", top: 0, left: 0 }}
-    >
+    <svg ref={svgRef} width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0 }}>
       {star && (
         <rect
           key={star.id}
@@ -108,18 +99,13 @@ const ShootingStars: React.FC = () => {
           width={10 * star.scale}
           height="2"
           fill="url(#gradient)"
-          transform={`rotate(${star.angle}, ${
-            star.x + (10 * star.scale) / 2
-          }, ${star.y + 1})`}
+          transform={`rotate(${star.angle}, ${star.x + (10 * star.scale) / 2}, ${star.y + 1})`}
         />
       )}
       <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: "#2EB9DF", stopOpacity: 0 }} />
-          <stop
-            offset="100%"
-            style={{ stopColor: "#ffb300", stopOpacity: 1 }}
-          />
+          <stop offset="0%" style={{ stopColor: '#2EB9DF', stopOpacity: 0 }} />
+          <stop offset="100%" style={{ stopColor: '#ffb300', stopOpacity: 1 }} />
         </linearGradient>
       </defs>
     </svg>

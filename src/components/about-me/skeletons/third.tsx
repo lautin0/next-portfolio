@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { motion, useAnimate } from "framer-motion";
-import React, { useState } from "react";
+import { motion, useAnimate } from 'framer-motion';
+import React, { useState } from 'react';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 export const SkeletonThree = () => {
   const [scope, animate] = useAnimate();
@@ -13,23 +13,19 @@ export const SkeletonThree = () => {
 
     setAnimating(true);
     await animate(
-      ".message",
+      '.message',
       {
         scale: [0, 1],
       },
       {
         duration: 0.4,
-      },
+      }
     );
     setAnimating(false);
   };
 
   return (
-    <div
-      ref={scope}
-      className="overflow-hidden h-full relative "
-      onMouseEnter={enterAnimation}
-    >
+    <div ref={scope} className="overflow-hidden h-full relative " onMouseEnter={enterAnimation}>
       <div className="flex justify-between gap-4">
         <div className="flex flex-col gap-1">
           <span className="font-medium">6,092</span>
@@ -95,10 +91,7 @@ export const SkeletonThree = () => {
                 <feOffset dy="32" />
                 <feGaussianBlur stdDeviation="12" />
                 <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0"
-                />
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0" />
                 <feBlend
                   mode="multiply"
                   in2="BackgroundImageFix"
@@ -118,39 +111,30 @@ export const SkeletonThree = () => {
                 />
                 <feOffset />
                 <feGaussianBlur stdDeviation="4" />
-                <feComposite
-                  in2="hardAlpha"
-                  operator="arithmetic"
-                  k2="-1"
-                  k3="1"
-                />
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
                 <feColorMatrix
                   type="matrix"
                   values="0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0.25 0"
                 />
-                <feBlend
-                  mode="normal"
-                  in2="shape"
-                  result="effect2_innerShadow_1_60235"
-                />
+                <feBlend mode="normal" in2="shape" result="effect2_innerShadow_1_60235" />
               </filter>
               <motion.linearGradient
                 initial={{
-                  x1: "0%",
-                  y1: "0%",
-                  x2: "0%",
-                  y2: "0%",
+                  x1: '0%',
+                  y1: '0%',
+                  x2: '0%',
+                  y2: '0%',
                 }}
                 animate={{
-                  x1: "100%",
-                  y1: "0%",
-                  x2: "120%",
-                  y2: "0%",
+                  x1: '100%',
+                  y1: '0%',
+                  x2: '120%',
+                  y2: '0%',
                 }}
                 id="gradient-3"
                 transition={{
                   duration: Math.random() * (7 - 2) + 2,
-                  ease: "linear",
+                  ease: 'linear',
                   repeat: Infinity,
                 }}
               >
@@ -261,10 +245,7 @@ export const SkeletonThree = () => {
                 <feOffset dy="32" />
                 <feGaussianBlur stdDeviation="12" />
                 <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0"
-                />
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0" />
                 <feBlend
                   mode="multiply"
                   in2="effect1_backgroundBlur_1_60257"
@@ -284,21 +265,12 @@ export const SkeletonThree = () => {
                 />
                 <feOffset />
                 <feGaussianBlur stdDeviation="4" />
-                <feComposite
-                  in2="hardAlpha"
-                  operator="arithmetic"
-                  k2="-1"
-                  k3="1"
-                />
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
                 <feColorMatrix
                   type="matrix"
                   values="0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0.25 0"
                 />
-                <feBlend
-                  mode="normal"
-                  in2="shape"
-                  result="effect3_innerShadow_1_60257"
-                />
+                <feBlend mode="normal" in2="shape" result="effect3_innerShadow_1_60257" />
               </filter>
               <linearGradient
                 id="paint0_linear_1_60257"
@@ -339,18 +311,12 @@ export const SkeletonThree = () => {
   );
 };
 
-const Cover = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
+const Cover = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   return (
     <span
       className={cn(
-        "border rounded-md px-1 py-0.5 mr-1 border-indigo-500 bg-indigo-500/10 text-white",
-        className,
+        'border rounded-md px-1 py-0.5 mr-1 border-indigo-500 bg-indigo-500/10 text-white',
+        className
       )}
     >
       {children}
