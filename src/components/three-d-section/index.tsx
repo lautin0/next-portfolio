@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import { Suspense, useRef, useState } from "react";
-import { Model } from "./model/mac-draco";
-import { Container } from "../container";
-import { useSpring } from "@react-spring/core";
+import { ContactShadows, Environment, OrbitControls } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { Suspense, useRef, useState } from 'react';
+import { Model } from './model/mac-draco';
+import { Container } from '../container';
+import { useSpring } from '@react-spring/core';
 
 export const ThreeDSection = () => {
   const [open, setOpen] = useState(false);
@@ -20,9 +20,7 @@ export const ThreeDSection = () => {
             <group
               rotation={[0, Math.PI, 0]}
               position={[0, 1, 0]}
-              onPointerDown={(e: any) =>
-                (down.current = { x: e.clientX, y: e.clientY })
-              }
+              onPointerDown={(e: any) => (down.current = { x: e.clientX, y: e.clientY })}
               onClick={(e: any) => {
                 if (!down.current) return;
                 const dx = e.clientX - down.current.x;
@@ -36,12 +34,7 @@ export const ThreeDSection = () => {
             </group>
             <Environment preset="city" />
           </Suspense>
-          <ContactShadows
-            position={[0, -4.5, 0]}
-            scale={20}
-            blur={2}
-            far={4.5}
-          />
+          <ContactShadows position={[0, -4.5, 0]} scale={20} blur={2} far={4.5} />
           <OrbitControls
             enablePan={false}
             enableZoom={false}

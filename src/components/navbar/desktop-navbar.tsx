@@ -1,26 +1,21 @@
-"use client";
+'use client';
 
-import {
-  AnimatePresence,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-} from "framer-motion";
-import { Link } from "next-view-transitions";
-import { useState } from "react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { Link } from 'next-view-transitions';
+import { useState } from 'react';
 
-import { NavbarItem } from "./navbar-item";
-import { Button } from "@/components/elements/button";
-import { cn } from "@/lib/utils";
-import { Props } from "./types";
-import { Logo } from "../logo";
+import { NavbarItem } from './navbar-item';
+import { Button } from '@/components/elements/button';
+import { cn } from '@/lib/utils';
+import { Props } from './types';
+import { Logo } from '../logo';
 
 export const DesktopNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
   const { scrollY } = useScroll();
 
   const [showBackground, setShowBackground] = useState(false);
 
-  useMotionValueEvent(scrollY, "change", (value) => {
+  useMotionValueEvent(scrollY, 'change', (value) => {
     if (value > 100) {
       setShowBackground(true);
     } else {
@@ -30,11 +25,11 @@ export const DesktopNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
   return (
     <motion.div
       className={cn(
-        "w-full flex relative justify-between px-4 py-3 rounded-md  transition duration-200 bg-transparent mx-auto",
+        'w-full flex relative justify-between px-4 py-3 rounded-md  transition duration-200 bg-transparent mx-auto'
       )}
       animate={{
-        width: showBackground ? "80%" : "100%",
-        background: showBackground ? "var(--neutral-900)" : "transparent",
+        width: showBackground ? '80%' : '100%',
+        background: showBackground ? 'var(--neutral-900)' : 'transparent',
       }}
       transition={{
         duration: 0.4,
@@ -57,11 +52,7 @@ export const DesktopNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
         <Logo />
         <div className="flex items-center gap-1.5">
           {leftNavbarItems.map((item) => (
-            <NavbarItem
-              href={`/${item.URL}` as never}
-              key={item.text}
-              target={item.target}
-            >
+            <NavbarItem href={`/${item.URL}` as never} key={item.text} target={item.target}>
               {item.text}
             </NavbarItem>
           ))}
@@ -71,11 +62,9 @@ export const DesktopNavbar = ({ leftNavbarItems, rightNavbarItems }: Props) => {
         {rightNavbarItems.map((item, index) => (
           <Button
             key={item.text}
-            variant={
-              index === rightNavbarItems.length - 1 ? "primary" : "simple"
-            }
+            variant={index === rightNavbarItems.length - 1 ? 'primary' : 'simple'}
             as={Link}
-            href={`${item.URL.startsWith("http") ? "" : `/`}${item.URL}`}
+            href={`${item.URL.startsWith('http') ? '' : `/`}${item.URL}`}
             target={item.target}
           >
             {item.text}

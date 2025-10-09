@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { HTMLMotionProps, motion } from "framer-motion";
-import React from "react";
+import { HTMLMotionProps, motion } from 'framer-motion';
+import React from 'react';
 
 export const Cover = ({ children }: { children?: React.ReactNode }) => {
   return (
@@ -15,13 +15,7 @@ export const Cover = ({ children }: { children?: React.ReactNode }) => {
   );
 };
 
-export const CircleIcon = ({
-  className,
-  delay,
-}: {
-  className?: string;
-  delay?: number;
-}) => {
+export const CircleIcon = ({ className, delay }: { className?: string; delay?: number }) => {
   return (
     <motion.div
       initial={{
@@ -34,11 +28,11 @@ export const CircleIcon = ({
         duration: 1,
         delay: delay ?? 0,
         repeat: Infinity,
-        repeatType: "reverse" as const,
-        ease: "linear",
+        repeatType: 'reverse' as const,
+        ease: 'linear',
         repeatDelay: delay,
       }}
-      className={`pointer-events-none h-2 w-2 rounded-full bg-white opacity-20 ${className ?? ""}`}
+      className={`pointer-events-none h-2 w-2 rounded-full bg-white opacity-20 ${className ?? ''}`}
       style={{}}
     />
   );

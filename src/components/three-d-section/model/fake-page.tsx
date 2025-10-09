@@ -1,12 +1,6 @@
-import { Fragment } from "react";
-import {
-  Popover,
-  PopoverButton,
-  PopoverGroup,
-  PopoverPanel,
-  Transition,
-} from "@headlessui/react";
-import { cn } from "@/lib/utils";
+import { Fragment } from 'react';
+import { Popover, PopoverButton, PopoverGroup, PopoverPanel, Transition } from '@headlessui/react';
+import { cn } from '@/lib/utils';
 import {
   IconBookmark,
   IconCalendar,
@@ -21,84 +15,79 @@ import {
   IconRefresh,
   IconShieldCheck,
   IconX,
-} from "@tabler/icons-react";
-import Image from "next/image";
+} from '@tabler/icons-react';
+import Image from 'next/image';
 
 const features = [
   {
-    name: "Analytics",
-    href: "#",
-    description:
-      "Get a better understanding of where your traffic is coming from.",
+    name: 'Analytics',
+    href: '#',
+    description: 'Get a better understanding of where your traffic is coming from.',
     icon: IconChartBar,
   },
   {
-    name: "Reliability",
-    href: "#",
-    description: "Zero down-time",
+    name: 'Reliability',
+    href: '#',
+    description: 'Zero down-time',
     icon: IconCursorText,
   },
   {
-    name: "Security",
-    href: "#",
+    name: 'Security',
+    href: '#',
     description: "Your customers' data will be safe and secure.",
     icon: IconShieldCheck,
   },
   {
-    name: "Integrations",
-    href: "#",
+    name: 'Integrations',
+    href: '#',
     description: "Connect with third-party tools that you're already using.",
     icon: IconDeviceWatchCog,
   },
   {
-    name: "Automations",
-    href: "#",
-    description:
-      "Build strategic funnels that will drive your customers to convert",
+    name: 'Automations',
+    href: '#',
+    description: 'Build strategic funnels that will drive your customers to convert',
     icon: IconRefresh,
   },
 ];
 const callsToAction = [
-  { name: "Watch Demo", href: "#", icon: IconPlayCard },
-  { name: "Contact Sales", href: "#", icon: IconPhone },
+  { name: 'Watch Demo', href: '#', icon: IconPlayCard },
+  { name: 'Contact Sales', href: '#', icon: IconPhone },
 ];
 const resources = [
   {
-    name: "Help Center",
-    description:
-      "Get all of your questions answered in our forums or contact support.",
-    href: "#",
+    name: 'Help Center',
+    description: 'Get all of your questions answered in our forums or contact support.',
+    href: '#',
     icon: IconHelp,
   },
   {
-    name: "Guides",
-    description:
-      "Learn how to maximize our platform to get the most out of it.",
-    href: "#",
+    name: 'Guides',
+    description: 'Learn how to maximize our platform to get the most out of it.',
+    href: '#',
     icon: IconBookmark,
   },
   {
-    name: "Events",
-    description:
-      "See what meet-ups and other events we might be planning near you.",
-    href: "#",
+    name: 'Events',
+    description: 'See what meet-ups and other events we might be planning near you.',
+    href: '#',
     icon: IconCalendar,
   },
   {
-    name: "Security",
-    description: "Understand how we take your privacy seriously.",
-    href: "#",
+    name: 'Security',
+    description: 'Understand how we take your privacy seriously.',
+    href: '#',
     icon: IconShieldCheck,
   },
 ];
 const recentPosts = [
-  { id: 1, name: "Boost your conversion rate", href: "#" },
+  { id: 1, name: 'Boost your conversion rate', href: '#' },
   {
     id: 2,
-    name: "How to use search engine optimization to drive traffic to your site",
-    href: "#",
+    name: 'How to use search engine optimization to drive traffic to your site',
+    href: '#',
   },
-  { id: 3, name: "Improve your customer experience", href: "#" },
+  { id: 3, name: 'Improve your customer experience', href: '#' },
 ];
 
 export default function Example() {
@@ -126,15 +115,15 @@ export default function Example() {
                       <>
                         <PopoverButton
                           className={cn(
-                            open ? "text-gray-900" : "text-gray-500",
-                            "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500",
+                            open ? 'text-gray-900' : 'text-gray-500',
+                            'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500'
                           )}
                         >
                           <span>Solutions</span>
                           <IconChevronDown
                             className={cn(
-                              open ? "text-gray-600" : "text-gray-400",
-                              "ml-2 h-5 w-5 group-hover:text-gray-500",
+                              open ? 'text-gray-600' : 'text-gray-400',
+                              'ml-2 h-5 w-5 group-hover:text-gray-500'
                             )}
                             aria-hidden="true"
                           />
@@ -200,16 +189,10 @@ export default function Example() {
                     )}
                   </Popover>
 
-                  <a
-                    href="#"
-                    className="text-base font-medium text-gray-500 hover:text-gray-900"
-                  >
+                  <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
                     Pricing
                   </a>
-                  <a
-                    href="#"
-                    className="text-base font-medium text-gray-500 hover:text-gray-900"
-                  >
+                  <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
                     Docs
                   </a>
 
@@ -218,15 +201,15 @@ export default function Example() {
                       <>
                         <PopoverButton
                           className={cn(
-                            open ? "text-gray-900" : "text-gray-500",
-                            "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500",
+                            open ? 'text-gray-900' : 'text-gray-500',
+                            'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500'
                           )}
                         >
                           <span>More</span>
                           <IconChevronDown
                             className={cn(
-                              open ? "text-gray-600" : "text-gray-400",
-                              "ml-2 h-5 w-5 group-hover:text-gray-500",
+                              open ? 'text-gray-600' : 'text-gray-400',
+                              'ml-2 h-5 w-5 group-hover:text-gray-500'
                             )}
                             aria-hidden="true"
                           />
@@ -276,10 +259,7 @@ export default function Example() {
                                   </h3>
                                   <ul className="mt-4 space-y-4">
                                     {recentPosts.map((item) => (
-                                      <li
-                                        key={item.id}
-                                        className="text-base truncate"
-                                      >
+                                      <li key={item.id} className="text-base truncate">
                                         <a
                                           href={item.href}
                                           className="font-medium text-gray-900 hover:text-gray-700"
@@ -295,9 +275,8 @@ export default function Example() {
                                     href="#"
                                     className="font-medium text-amber-600 hover:text-amber-500"
                                   >
-                                    {" "}
-                                    View all posts{" "}
-                                    <span aria-hidden="true">&rarr;</span>
+                                    {' '}
+                                    View all posts <span aria-hidden="true">&rarr;</span>
                                   </a>
                                 </div>
                               </div>
@@ -398,10 +377,7 @@ export default function Example() {
                       </a>
                       <p className="mt-6 text-center text-base font-medium text-gray-500">
                         Existing customer?
-                        <a
-                          href="#"
-                          className="text-amber-600 hover:text-amber-500"
-                        >
+                        <a href="#" className="text-amber-600 hover:text-amber-500">
                           Sign in
                         </a>
                       </p>
@@ -418,13 +394,13 @@ export default function Example() {
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center">
           <div className="px-4 px-8">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 text-5xl">
-              <span className="block">Full-Stack Engineering</span>{" "}
+              <span className="block">Full-Stack Engineering</span>{' '}
               <span className="block text-amber-600">Front-End Leaning</span>
             </h1>
             <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 text-xl">
-              Expert in building performant, responsive, and accessible UIs
-              using React, Next.js, TypeScript, and modern frameworks. I focus
-              on scalable architecture and clean component design.
+              Expert in building performant, responsive, and accessible UIs using React, Next.js,
+              TypeScript, and modern frameworks. I focus on scalable architecture and clean
+              component design.
             </p>
             <div className="mt-10 flex justify-center">
               <div className="mt-3 rounded-md shadow mt-0 ml-3">

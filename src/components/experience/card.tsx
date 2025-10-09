@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   motion,
@@ -8,11 +8,11 @@ import {
   useScroll,
   useSpring,
   useTransform,
-} from "framer-motion";
-import React, { MouseEvent as ReactMouseEvent, useRef } from "react";
+} from 'framer-motion';
+import React, { MouseEvent as ReactMouseEvent, useRef } from 'react';
 
-import Beam from "../beam";
-import { CanvasRevealEffect } from "../ui/canvas-reveal-effect";
+import Beam from '../beam';
+import { CanvasRevealEffect } from '../ui/canvas-reveal-effect';
 
 export const Card = ({
   title,
@@ -26,11 +26,7 @@ export const Card = ({
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  function handleMouseMove({
-    currentTarget,
-    clientX,
-    clientY,
-  }: ReactMouseEvent<HTMLDivElement>) {
+  function handleMouseMove({ currentTarget, clientX, clientY }: ReactMouseEvent<HTMLDivElement>) {
     const { left, top } = currentTarget.getBoundingClientRect();
 
     mouseX.set(clientX - left);
@@ -41,7 +37,7 @@ export const Card = ({
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["end end", "start start"],
+    offset: ['end end', 'start start'],
   });
 
   const width = useSpring(useTransform(scrollYProgress, [0, 0.2], [0, 300]), {
@@ -49,12 +45,9 @@ export const Card = ({
     damping: 90,
   });
 
-  useMotionValueEvent(width, "change", (latest) => {});
+  useMotionValueEvent(width, 'change', (latest) => {});
   return (
-    <div
-      ref={ref}
-      className="grid grid-cols-1 md:grid-cols-4 max-w-4xl mx-auto py-20"
-    >
+    <div ref={ref} className="grid grid-cols-1 md:grid-cols-4 max-w-4xl mx-auto py-20">
       <p className="text-9xl font-bold text-neutral-900 mt-8">{index}</p>
       <motion.div
         className="h-px w-full hidden md:block bg-gradient-to-r from-neutral-800 to-neutral-600 rounded-full mt-16 relative overflow-hidden"
