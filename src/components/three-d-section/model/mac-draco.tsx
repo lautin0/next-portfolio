@@ -1,15 +1,19 @@
 'use client';
 
 import * as THREE from 'three';
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Html, useGLTF } from '@react-three/drei';
+import { useGLTF } from '@react-three/drei';
 import HeroPage from './fake-page';
 import { a as three } from '@react-spring/three';
+import { IOSHtml } from './ios-html';
 
 export const Model = React.memo(function Model(props: any) {
   const { hinge } = props;
   const group = useRef<any>(null);
+
+  const anchor = useMemo(() => new THREE.Group(), []);
+
   // Load model
   const { nodes, materials } = useGLTF('/mac-draco.glb');
   // Make it float
@@ -53,19 +57,19 @@ export const Model = React.memo(function Model(props: any) {
           />
           {/* @ts-expect-error get geometry */}
           <mesh geometry={nodes.Cube008_2.geometry}>
+            {/* anchor primitive defines the screen-space reference point */}
+            <primitive
+              object={anchor} // your anchor group
+              position={[0, 0.05, -0.09]} // your screen offset
+            />
+
+            {/* IOS-safe Html follows the anchor world position */}
             {/* Drei's HTML component can "hide behind" canvas geometry */}
-            <Html
-              className="content"
-              rotation-x={-Math.PI / 2}
-              position={[0, 0.05, -0.09]}
-              transform
-              occlude
-              center
-            >
+            <IOSHtml anchor={anchor}>
               <div className="wrapper" onPointerDown={(e) => e.stopPropagation()}>
                 <MemorizedHeroPage />
               </div>
-            </Html>
+            </IOSHtml>
           </mesh>
         </group>
       </three.group>
